@@ -9,3 +9,6 @@ class MainPage(BasePage):
     def go_to_login_page(self):
         link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
         link.click()
+        # если добавиться allert, то мы можем добавиь эту строчку и всё, остальные тесты менять не нужно
+        # alert = self.browser.switch_to.alert
+        # alert.accept()
