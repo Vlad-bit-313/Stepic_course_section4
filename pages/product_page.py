@@ -21,6 +21,14 @@ class ProductPage(BasePage):
         assert price_book == price_book_in_cart, "Цены не совпадают"
         print(f'Цена в корзине {price_book_in_cart}')
 
+    def sucsess_message_not_in_window(self):
+        sucsess_messge = self.is_not_element_present(*ProductPageLocators.NAME_SUCSESS_MESSAGE)
+        assert sucsess_messge, "Появилсось сообщение о добавлении товара в корзину"
+
+    def sucsess_message_disappeared(self):
+        message_disappeared = self.is_disappeared(*ProductPageLocators.NAME_SUCSESS_MESSAGE)
+        assert  message_disappeared, "Сообщения об успехе добавления в корзину не исчезло"
+
 
 class LoginPage(BasePage):
     def should_be_login_page(self):
