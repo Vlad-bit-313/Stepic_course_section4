@@ -16,3 +16,4 @@ class ProductPageLocators():
     PRODUCT_NAME_IN_CART = (By.CSS_SELECTOR, ".alertinner>strong")
     PRODUCT_PRICE = (By.CSS_SELECTOR, "p.price_color")
     PRODUCT_PRICE_IN_CART = (By.CSS_SELECTOR, ".alertinner>p>strong")
+    NAME_SUCSESS_MESSAGE = (By.CSS_SELECTOR, "#messages>.alert")
