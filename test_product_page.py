@@ -11,7 +11,8 @@ link_step_6 = "http://selenium1py.pythonanywhere.com/"
 
 
 class TestUserAddToBasketFromProductPage:
-    # autouse=True - без явного вызова эти фикстуры запустится
+    """Здесь реализованны подготовительные действия перед тестированием авторизованного пользователя"""
+
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         start_page = LoginPage(browser, link_step_6)
@@ -87,12 +88,10 @@ def test_guest_should_see_login_link_on_product_page(browser):
 def test_guest_can_go_to_login_page_from_product_page(browser):
     link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
     page = ProductPage(browser, link)
-    page.open()
+    page.open()  # Открыть страницу товара
     page.go_to_login_page()
     login_page = LoginPage(browser, browser.current_url)  # для перехода на новую страницу
     login_page.should_be_login_page()
-    login = LoginPage(browser, link)
-    login.should_be_login_page()
 
 
 @pytest.mark.need_review

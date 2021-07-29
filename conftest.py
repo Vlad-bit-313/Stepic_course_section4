@@ -1,11 +1,6 @@
-# урок 3.6 шаг 5
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-
-# del
-import time
-
 
 
 def pytest_addoption(parser):
@@ -39,5 +34,4 @@ def browser(request):
         raise pytest.UsageError("--browser_name should be chrome or firefox")
     yield browser
     print("\nquit browser..")
-    # time.sleep(200)
     browser.quit()
