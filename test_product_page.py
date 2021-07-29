@@ -1,18 +1,14 @@
 import time
 import pytest
 from .pages.product_page import ProductPage
-from .pages.product_page import LoginPage
+from .pages.login_page import LoginPage
 from .pages.basket_page import BasketPage
 
-# здесь у нас только тест-кейсы
-# pytest -v --tb=line --language=en test_product_page.py
-#
 link_step_6 = "http://selenium1py.pythonanywhere.com/"
 
 
 class TestUserAddToBasketFromProductPage:
     """Здесь реализованны подготовительные действия перед тестированием авторизованного пользователя"""
-
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         start_page = LoginPage(browser, link_step_6)
@@ -38,7 +34,6 @@ class TestUserAddToBasketFromProductPage:
         button.price_book_in_cart()  # Проверяем цену в корзине и на сайте
 
 
-@pytest.mark.skip
 @pytest.mark.parametrize('num', ["0", "1", "2", "3", "4", "5", "6",
                                  pytest.param(7, marks=pytest.mark.xfail),
                                  "8", "9"])
